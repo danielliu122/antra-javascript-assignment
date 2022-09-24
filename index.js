@@ -115,6 +115,7 @@ console.log(secondLowest([1, 3, 2, 4, 5]));
 // Example: The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6. Equivalently, the number 6 is equal to half the sum of all its positive divisors: ( 1 + 2 + 3 + 6 ) / 2 = 6. The next perfect number is 28 = 1 + 2 + 4 + 7 + 14. This is followed by the perfect numbers 496 and 8128.
 
 function perfectNum(num) {
+  if (num == 1) return false;
   var res = 1 + num;
   for (i = 2; i < num / 2; i += 2) {
     if (res == num * 2) break;
@@ -124,7 +125,7 @@ function perfectNum(num) {
       res += num / i;
     }
   }
-  console.log(res);
+  // console.log(res);
   return res / 2 == num ? true : false;
 }
 

@@ -77,19 +77,13 @@ console.log(numVowels('The quick brown fox'));
 // Note: A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
 
 function checkPrime(num) {
-  const singles = [2, 5, 7];
+  const singles = [2, 3, 5, 7];
   if (singles.includes(num)) return true;
-  return num > 1 &&
-    num % 2 != 0 &&
-    num % 3 != 0 &&
-    num % 5 != 0 &&
-    num % 7 != 0 &&
-    num % 9 != 0 &&
-    Math.sqrt(num) % 1 != 0
+  return num > 1 && num % 2 != 0 && num % 3 != 0 && num % 5 != 0 && num % 7 != 0
     ? true
     : false;
 }
-console.log(checkPrime(101));
+console.log('checkprime ' + checkPrime(15485863));
 
 // 9. Write a JavaScript function which accepts an argument and returns the type.
 // Note: There are six possible values that typeof returns: object, boolean, function, number, string, and undefined.
@@ -133,6 +127,21 @@ console.log(perfectNum(496));
 
 // 13. Write a JavaScript function to compute the factors of a positive integer.
 
+function computeFactors(num) {
+  if (num == 1) {
+    return [1, 1];
+  }
+  var res = [];
+  for (i = 1; i < Math.sqrt(num); i += 1) {
+    if ((num / i) % 1 == 0) {
+      // console.log(i, res);
+      res.push(i);
+      res.push(num / i);
+    }
+  }
+  return res;
+}
+console.log(computeFactors(1));
 // 14. Write a JavaScript function to convert an amount to coins.
 // Sample function: amountTocoins(46, [25, 10, 5, 2, 1])
 // Here 46 is the amount. and 25, 10, 5, 2, 1 are coins.
